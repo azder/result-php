@@ -1,0 +1,13 @@
+{
+  "name": "azder/result",
+  "description": "A PHP helper library that gives Result's",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Azder\\R\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.0"
+  }
+}
