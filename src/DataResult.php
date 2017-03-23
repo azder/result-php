@@ -9,12 +9,12 @@ class DataResult extends AbstractResult implements Data
 
     public function map( callable $transformer ): Result
     {
-        return new self( $transformer( $this->value ) );
+        return new static( $transformer( $this->value ) );
     }
 
     public function bimap( callable $etransformer, callable $transformer ): Result
     {
-        return new self( $transformer( $this->value ) );
+        return new static( $transformer( $this->value ) );
     }
 
     public function ap( Result $result ): Result
