@@ -21,7 +21,7 @@ abstract class AbstractResult implements Result
 
     abstract public function map( callable $transformer ): Result;
 
-    abstract public function bimap( callable $errorMapper, callable $dataMapper ): Result;
+    abstract public function bimap( callable $etransformer, callable $transformer ): Result;
 
     abstract public function ap( Result $result ): Result;
 

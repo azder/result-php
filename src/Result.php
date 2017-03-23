@@ -13,7 +13,7 @@ interface Result
 
     public function map( callable $transformer ): Result;
 
-    public function bimap( callable $errorMapper, callable $dataMapper ): Result;
+    public function bimap( callable $etransformer, callable $transformer ): Result;
 
     public function ap( Result $result ): Result;
 
