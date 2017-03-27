@@ -7,4 +7,10 @@ namespace Azder\R;
 class ErrorResult extends AbstractResult implements Result
 {
     use Inert;
+
+    public function bimap( callable $etransformer, callable $transformer ): Result
+    {
+        return new static( $etransformer( $this->value ) );
+    }
+
 }
