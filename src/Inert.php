@@ -13,13 +13,6 @@ trait Inert
         return $this;
     }
 
-    public function bimap( callable $etransformer, callable $transformer ): Result
-    {
-        /** @var Result $this */
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
-        return new static( $etransformer( $this->value ) );
-    }
-
     public function ap( Result $result ): Result
     {
         return $result;
