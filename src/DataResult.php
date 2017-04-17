@@ -4,25 +4,22 @@
 namespace Azder\R;
 
 
-class DataResult extends AbstractResult implements Data
+class DataResult extends Res implements Data
 {
+
+    public static function of( $value ): Result
+    {
+        return new static( $value );
+    }
 
     public function map( callable $transformer ): Result
     {
-        return new static( $transformer( $this->value ) );
+        return static::of( $transformer( $this->value ) );
     }
 
     public function bimap( callable $etransformer, callable $transformer ): Result
     {
-        return new static( $transformer( $this->value ) );
-    }
-
-    public function ap( Result $result ): Result
-    {
-        return $this->chain( function ( $f ) use ( $result )
-        {
-            return $result->map( $f );
-        } );
+        return static::of( $transformer( $this->value ) );
     }
 
     public function chain( callable $transformer ): Result

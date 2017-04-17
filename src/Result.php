@@ -7,19 +7,19 @@ namespace Azder\R;
 interface Result
 {
 
-    public function __construct( $value );
+    //private function __construct( $value );
+
+    public static function of( $value ): Result;
+
+    public function chain( callable $transformer ): Result;
+
+    public function bimap( callable $etransformer, callable $transformer ): Result;
 
     public function value();
 
     public function map( callable $transformer ): Result;
 
-    public function bimap( callable $etransformer, callable $transformer ): Result;
-
     public function ap( Result $result ): Result;
-
-    public function chain( callable $transformer ): Result;
-
-    public static function of( $value ): Result;
 
 
 }

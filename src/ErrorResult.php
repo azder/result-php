@@ -4,13 +4,22 @@
 namespace Azder\R;
 
 
-class ErrorResult extends AbstractResult implements Result
+class ErrorResult extends Res implements Result
 {
-    use Inert;
+
+    public static function of( $value ): Result
+    {
+        return new static( $value );
+    }
 
     public function bimap( callable $etransformer, callable $transformer ): Result
     {
-        return new static( $etransformer( $this->value ) );
+        return static::of( $etransformer( $this->value ) );
+    }
+
+    public function chain( callable $transformer ): Result
+    {
+        return $this;
     }
 
 }
